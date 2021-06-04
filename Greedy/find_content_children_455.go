@@ -23,18 +23,37 @@ func findContentChildren(g []int, s []int) int {
 	sort.Ints(s)
 
 	//遍历
-	count,indexg,indexs := 0,0,0
-	for  {
-		if indexg <len(g) && indexs <len(s) {
-			if g[indexg]<=s[indexs] {
+	count, indexg, indexs := 0, 0, 0
+	for {
+		if indexg < len(g) && indexs < len(s) {
+			if g[indexg] <= s[indexs] {
 				indexg++
 				count++
 			}
 			indexs++
-		}else {
+		} else {
 			break
 		}
 	}
 
 	return count
+}
+
+// findContentChildren2 简化了 count 计数，同时将indexs的自动增加添加到了 for循环中
+// 再次简化
+func findContentChildren2(g []int, s []int) int {
+	sort.Ints(g)
+	sort.Ints(s)
+
+	indexg:= 0
+	for i := 0; i < len(s); i++ {
+		if indexg < len(g) {
+			if g[indexg] <= s[i] {
+				indexg++
+			}
+		} else {
+			break
+		}
+	}
+	return indexg
 }
