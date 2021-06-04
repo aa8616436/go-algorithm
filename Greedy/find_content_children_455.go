@@ -42,9 +42,13 @@ func findContentChildren(g []int, s []int) int {
 // findContentChildren2 简化了 count 计数，同时将indexs的自动增加添加到了 for循环中
 // 再次简化
 func findContentChildren2(g []int, s []int) int {
-	sort.Ints(g)
-	sort.Ints(s)
-
+	if !sort.IntsAreSorted(g){ //去掉该判断会减少消耗时间，但会增加内存消耗
+		sort.Ints(g)
+	}
+	if !sort.IntsAreSorted(s){
+		sort.Ints(s)
+	}
+	
 	indexg:= 0
 	for i := 0; i < len(s); i++ {
 		if indexg < len(g) {

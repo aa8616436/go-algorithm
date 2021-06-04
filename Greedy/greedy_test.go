@@ -11,15 +11,15 @@ func Test455(t *testing.T) {
 		s := []int{1, 2, 3}
 		count := findContentChildren(g, s)
 
-		assert.Equal(t, 2,count)
+		assert.Equal(t, 2, count)
 	})
 
 	t.Run("findContentChildren", func(t *testing.T) {
-		g := []int{10,9,8,7}
-		s := []int{5,6,7,8}
+		g := []int{10, 9, 8, 7}
+		s := []int{5, 6, 7, 8}
 		count := findContentChildren(g, s)
 
-		assert.Equal(t, 2,count)
+		assert.Equal(t, 2, count)
 	})
 
 	t.Run("findContentChildren2", func(t *testing.T) {
@@ -27,5 +27,24 @@ func Test455(t *testing.T) {
 		s := []int{1, 2, 3}
 		count := findContentChildren2(g, s)
 
-		assert.Equal(t, 2,count)	})
+		assert.Equal(t, 2, count)
+	})
+}
+
+func Test135(t *testing.T) {
+	t.Run("candy", func(t *testing.T) {
+		ints := []int{1, 0, 2} // 1,0,1
+
+		i := candy(ints)
+
+		assert.Equal(t, 5,i)
+	})
+
+	t.Run("candy", func(t *testing.T) {
+		ints := []int{1,2,87,87,87,2,1}  // 0,1,2,0,2,1,0
+
+		i:= candy(ints)
+		assert.Equal(t, 13,i)
+	})
+
 }
