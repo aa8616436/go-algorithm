@@ -48,3 +48,17 @@ func Test135(t *testing.T) {
 	})
 
 }
+
+func Test435(t *testing.T) {
+	t.Run("eraseOverlapIntervals", func(t *testing.T) {
+		i := [][]int{{1, 2}, {2, 3}, {3, 4}, {1, 3}}
+		r := eraseOverlapIntervals(i)
+		assert.Equal(t, 1,r)
+	})
+
+	t.Run("eraseOverlapIntervals", func(t *testing.T) {
+		i := [][]int{{1, 2}, {1, 2}, {1, 2}}
+		r := eraseOverlapIntervals(i)
+		assert.Equal(t, 2,r)
+	})
+}
