@@ -62,3 +62,72 @@ func Test435(t *testing.T) {
 		assert.Equal(t, 2,r)
 	})
 }
+
+func Test605(t *testing.T) {
+	t.Run("canPlaceFlowers", func(t *testing.T) {
+		i := []int{1, 0, 0, 0, 1}
+		flowers := canPlaceFlowers(i, 1)
+		assert.Equal(t, true,flowers)
+	})
+	t.Run("canPlaceFlowers", func(t *testing.T) {
+		i := []int{1, 0, 0, 0, 1}
+		flowers := canPlaceFlowers(i, 2)
+		assert.Equal(t, false,flowers)
+	})
+}
+
+func Test452(t *testing.T) {
+	t.Run("findMinArrowShots", func(t *testing.T) {
+		i := [][]int{{10, 16}, {2, 8}, {1, 6}, {7, 12}}
+		shots := findMinArrowShots(i)
+		assert.Equal(t, 2,shots)
+	})
+	t.Run("findMinArrowShots", func(t *testing.T) {
+		i := [][]int{{1, 2}, {3, 4}, {5, 6}, {7, 8}}
+		shots := findMinArrowShots(i)
+		assert.Equal(t, 4,shots)
+	})
+	t.Run("findMinArrowShots", func(t *testing.T) {
+		i := [][]int{{1, 2}, {2, 3}, {3, 4}, {4, 5}}
+		shots := findMinArrowShots(i)
+		assert.Equal(t, 2,shots)
+	})
+	t.Run("findMinArrowShots", func(t *testing.T) {
+		i := [][]int{{1, 2}}
+		shots := findMinArrowShots(i)
+		assert.Equal(t, 1,shots)
+	})
+	t.Run("findMinArrowShots", func(t *testing.T) {
+		i := [][]int{{2,3},{2,3}}
+		shots := findMinArrowShots(i)
+		assert.Equal(t, 1,shots)
+	})
+}
+
+func Test763(t *testing.T) {
+	t.Run("partitionLabels", func(t *testing.T) {
+		s := "ababcbacadefegdehijhklij"
+		labels := partitionLabels(s)
+		assert.Equal(t, []int{9,7,8},labels)
+	})
+	t.Run("partitionLabels2", func(t *testing.T) {
+		s := "ababcbacadefegdehijhklij"
+		labels := partitionLabels2(s)
+		assert.Equal(t, []int{9,7,8},labels)
+	})
+
+}
+
+func Test122(t *testing.T) {
+	t.Run("maxProfit", func(t *testing.T) {
+		i := []int{7, 1, 5, 3, 6, 4}
+		profit := maxProfit(i)
+		assert.Equal(t, 7,profit)
+	})
+
+	t.Run("maxProfit", func(t *testing.T) {
+		i := []int{1,2,3,4,5}
+		profit := maxProfit(i)
+		assert.Equal(t, 4,profit)
+	})
+}
