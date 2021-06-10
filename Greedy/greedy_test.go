@@ -131,3 +131,32 @@ func Test122(t *testing.T) {
 		assert.Equal(t, 4,profit)
 	})
 }
+
+func Test406(t *testing.T) {
+	t.Run("reconstructQueue", func(t *testing.T) {
+		i := [][]int{{7, 0}, {4, 4}, {7, 1}, {5, 0}, {6, 1}, {5, 2}}
+		queue := reconstructQueue(i)
+		assert.Equal(t,[][]int{{5,0},{7,0},{5,2},{6,1},{4,4},{7,1}} ,queue)
+	})
+
+}
+
+func Test665(t *testing.T) {
+	t.Run("checkPossibility", func(t *testing.T) {
+		ints := []int{4, 2, 3}
+		result:= checkPossibility(ints)
+		assert.Equal(t, true,result)
+	})
+
+	t.Run("checkPossibility", func(t *testing.T) {
+		ints := []int{4, 2, 1}
+		result:= checkPossibility(ints)
+		assert.Equal(t, false,result)
+	})
+
+	t.Run("checkPossibility", func(t *testing.T) {
+		ints := []int{3,4, 2, 3}
+		result:= checkPossibility(ints)
+		assert.Equal(t, false,result)
+	})
+}
