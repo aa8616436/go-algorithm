@@ -38,3 +38,26 @@ func Test88(t *testing.T) {
 		merge(nums1,1,nums2,0)
 	})
 }
+
+func Test142(t *testing.T) {
+	t.Run("deleteCycle", func(t *testing.T) {
+	})
+}
+
+func Test76(t *testing.T) {
+	t.Run("minWindow", func(t *testing.T) {
+		window := minWindow("ADOBECODEBANC", "ABC")
+		assert.Equal(t, "BANC",window)
+	})
+	t.Run("minWindow", func(t *testing.T) {
+		window := minWindow("a", "a")
+		assert.Equal(t, "a",window)
+	})
+	t.Run("minWindow", func(t *testing.T) {
+		window := minWindow("ab", "a")
+		assert.Equal(t, "a",window)
+	})
+	t.Run("minWindow", func(t *testing.T) {
+		window := minWindow("bbaa", "aba")
+		assert.Equal(t, "baa",window)
+	})}
