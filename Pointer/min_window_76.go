@@ -1,7 +1,5 @@
 package Pointer
 
-import "strings"
-
 //给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
 //
 //注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。
@@ -13,68 +11,45 @@ import "strings"
 //输出："BANC"
 
 // minWindow 判断最短子串出现 t
-// 滑动窗口算法
-// 1.判断长度
-// 3.先判断能判断的最小字符串
-// 4.存储index,lastIndex
-// 5.依次往右，重复操作
+// 1.先判断特殊情况
+// 2.将t中所有的数据转为utf-8编码转换
 func minWindow(s string, t string) string {
 	if len(s) < len(t) {
 		return ""
 	}
-	if len(s) == len(t) && s == t {
-		return t
+
+	//将t中所有的数据转为utf-8编码转换
+	//统计t中的所有数据
+	hash := make([]int, 256)
+	for i := 0; i < len(t); i++ {
+		hash[t[i]]++
 	}
-	index := strings.IndexAny(s, t)
-	lastIndex := strings.LastIndexAny(s, t)
-	if index == -1 || lastIndex == -1 {
-		return ""
-	}
-	tmpS := s[index : lastIndex+1]
-	check := true
-	//从left开始一直持续
-	for check == true {
-		check = false
-		//将第一个删去,找到最近的
-		if index = strings.IndexAny(tmpS[1:], t); index < 0 {
-			break
+	//l:为作指针指向，count:t的总数,max：，results结果
+	l, count, max, results := 0, len(t), len(s)+1, ""
+
+	//r：为右指针指向
+	for r := 0; r < len(s); r++ {
+		//找到当前s[r]在 hash中的数据 -1
+		hash[s[r]]--
+
+		//说明该s[r]存在于t中
+		if hash[s[r]] >= 0 {
+			count--
 		}
 
-		//判断式子还是否成立
-		for i := 0; i < len(t); i++ {
-			//判断最新的临时数据是否成立
-			if strings.Contains(tmpS[1+index:], string(t[i])) {
-				if i == len(t)-1 && len(t)<=len(tmpS[1+index:]) {
-					check = true
-					tmpS = tmpS[1+index:]
-				}
-				continue
-			}
-			break
+		//l为左指针指向，当出现s[l:r]重复出现同一t内数据时
+		//移动左指针直到再次满足条件
+		for l < r && hash[s[l]] < 0 {
+			hash[s[l]]++
+			l++
+		}
+
+		//如果t的所有值都判断到了，判断最长长度
+		//该条件判断了所有的符合t的所有字段
+		if count == 0 && max > r-l+1 {
+			max = r - l + 1
+			results = s[l : r+1]
 		}
 	}
-
-	check = true
-	//从right开始一直持续
-	for check == true {
-		check = false
-		//将最后一个删去,找到最近的
-		if lastIndex = strings.LastIndexAny(tmpS[:len(tmpS)-1], t); lastIndex < 0 {
-			break
-		}
-		//判断式子还是否成立
-		for i := 0; i < len(t); i++ {
-			//判断最新的临时数据是否成立
-			if strings.Contains(tmpS[:lastIndex+1], string(t[i])) {
-				if i == len(t)-1 && len(t)<=len(tmpS[:lastIndex+1]) {
-					check = true
-					tmpS = tmpS[:lastIndex+1]
-				}
-				continue
-			}
-			break
-		}
-	}
-
-	return tmpS
+	return results
 }
