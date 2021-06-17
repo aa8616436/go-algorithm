@@ -61,3 +61,33 @@ func Test76(t *testing.T) {
 		window := minWindow("bbaa", "aba")
 		assert.Equal(t, "baa",window)
 	})}
+
+func Test633(t *testing.T) {
+	t.Run("judgeSquareSum", func(t *testing.T) {
+		check := judgeSquareSum(5)
+		assert.Equal(t, true,check)
+	})
+	t.Run("judgeSquareSum", func(t *testing.T) {
+		check := judgeSquareSum(3)
+		assert.Equal(t, false,check)
+	})
+	t.Run("judgeSquareSum", func(t *testing.T) {
+		check := judgeSquareSum(4)
+		assert.Equal(t, true,check)
+	})
+	t.Run("judgeSquareSum", func(t *testing.T) {
+		check := judgeSquareSum(2)
+		assert.Equal(t, true,check)
+	})
+	t.Run("judgeSquareSum", func(t *testing.T) {
+		check := judgeSquareSum(1)
+		assert.Equal(t, true,check)
+	})
+}
+
+func Test680(t *testing.T) {
+	t.Run("validPalindrome", func(t *testing.T) {
+		result := validPalindrome("aba")
+		assert.Equal(t, true,result)
+	})
+}
