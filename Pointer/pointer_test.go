@@ -91,3 +91,23 @@ func Test680(t *testing.T) {
 		assert.Equal(t, true,result)
 	})
 }
+
+func Test340(t *testing.T) {
+	t.Run("lengthOfLongestSubstringKDistinct", func(t *testing.T) {
+		result := lengthOfLongestSubstringKDistinct("eceba", 2)
+		assert.Equal(t, 3,result)
+	})
+
+	t.Run("lengthOfLongestSubstringKDistinct", func(t *testing.T) {
+		result := lengthOfLongestSubstringKDistinct("aa", 1)
+		assert.Equal(t, 2,result)
+	})
+	t.Run("lengthOfLongestSubstringKDistinct", func(t *testing.T) {
+		result := lengthOfLongestSubstringKDistinct("a", 1)
+		assert.Equal(t, 1,result)
+	})
+	t.Run("lengthOfLongestSubstringKDistinct", func(t *testing.T) {
+		result := lengthOfLongestSubstringKDistinct("aa", 2)
+		assert.Equal(t, 2,result)
+	})
+}
