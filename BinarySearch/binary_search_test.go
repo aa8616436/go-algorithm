@@ -1,9 +1,23 @@
 package BinarySearch
 
 import (
+	"fmt"
 	"github.com/stretchr/testify/assert"
+	"sort"
 	"testing"
 )
+
+func TestBinarySearch(t *testing.T) {
+	t.Run("binarySearch1", func(t *testing.T) {
+		search1 := binarySearch1([]int{3, 4, 5, 6, 7, 8}, 4)
+		assert.Equal(t, 1,search1)
+	})
+
+	t.Run("binarySearch2", func(t *testing.T) {
+		search2 := binarySearch2([]int{3, 4, 5, 6, 7, 8}, 6)
+		assert.Equal(t, 3,search2)
+	})
+}
 
 func Test69(t *testing.T) {
 	t.Run("mySqrt", func(t *testing.T) {
@@ -14,5 +28,17 @@ func Test69(t *testing.T) {
 	t.Run("mySqrt", func(t *testing.T) {
 		sqrt := mySqrt(8)
 		assert.Equal(t, 2,sqrt)
+	})
+}
+
+func Test34(t *testing.T) {
+	t.Run("searchRange", func(t *testing.T) {
+		ints := searchRange([]int{5, 7, 7, 8, 8, 10}, 8)
+		assert.Equal(t, []int{3,4},ints)
+	})
+
+	t.Run("searchRange", func(t *testing.T) {
+		ints := sort.SearchInts([]int{5, 7, 7, 8, 8, 10}, 11)
+		fmt.Println(ints)
 	})
 }
