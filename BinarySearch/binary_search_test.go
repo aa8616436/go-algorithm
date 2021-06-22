@@ -42,3 +42,24 @@ func Test34(t *testing.T) {
 		fmt.Println(ints)
 	})
 }
+
+func Test81(t *testing.T) {
+	t.Run("search", func(t *testing.T) {
+		r := search([]int{2, 5, 6, 0, 0, 1, 2}, 0)
+		assert.Equal(t, true,r)
+	})
+
+	t.Run("search2", func(t *testing.T) {
+		r := search2([]int{2, 5, 6, 0, 0, 1, 2}, 0)
+		assert.Equal(t, true,r)
+	})
+
+	t.Run("search2", func(t *testing.T) {
+		r := search2([]int{2, 5, 6, 0, 0, 1, 2}, 3)
+		assert.Equal(t, false,r)
+	})
+
+	t.Run("search2", func(t *testing.T) {
+		r := search2([]int{1,0,1,1,1}, 0)
+		assert.Equal(t, true,r)
+	})}
